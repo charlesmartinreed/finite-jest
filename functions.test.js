@@ -23,3 +23,12 @@ test("Value should be null", () => {
 test("Value should be falsy", () => {
   expect(functions.checkValue(undefined)).toBeFalsy();
 });
+
+// toEqual
+// toBe is for primitive types, but toEqual is for reference types which may contain similiar looking values, but may reference two difference memory address. Use toEqual to test objects, arrays, etc.
+test("Returned user should be Charles Reed", () => {
+  expect(functions.createUser()).toEqual({
+    lastName: "Reed",
+    firstName: "Charles"
+  });
+});

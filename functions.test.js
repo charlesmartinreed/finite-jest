@@ -32,3 +32,21 @@ test("Returned user should be Charles Reed", () => {
     firstName: "Charles"
   });
 });
+
+// tests can also evaluate inner/local params and conditional logic
+test("Should be under 1600 lbs", () => {
+  const load1 = 800;
+  const load2 = 600;
+  expect(load1 + load2).toBeLessThanOrEqual(1600);
+});
+
+// RegEx example
+test("Prove that there is no 'I' in team", () => {
+  expect("team").not.toMatch(/I/i);
+});
+
+// Arrays example
+test("Usernames array should contain Admin", () => {
+  usernames = ["caitlin", "sabrina", "chris", "keenan", "minnie", "admin"];
+  expect(usernames).toContain("admin");
+});

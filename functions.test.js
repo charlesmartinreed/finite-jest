@@ -50,3 +50,13 @@ test("Usernames array should contain Admin", () => {
   usernames = ["caitlin", "sabrina", "chris", "keenan", "minnie", "admin"];
   expect(usernames).toContain("admin");
 });
+
+// ASYNC/AWAIT DATA CALL EXAMPLE
+// test("Fetched username should be Leanne Graham", async () => {
+//   // when working with async code, we use assertions to ensure that the promises, etc, are all called
+//   expect.assertions(1);
+
+//   // ensure the test doesn't complete before the return
+//   const data = await functions.fetchUser();
+//   expect(data.name).toEqual("Leanne Graham");
+// });

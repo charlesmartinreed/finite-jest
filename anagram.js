@@ -1,18 +1,30 @@
+// THIS PARTICULAR IMPLEMTATION DOESN'T LEVERAGE THE SORT FUNCTION, BUT OBVIOUSLY THAT'D BE A MUCH CLEANER WAY OF DOING THIS...
+
 const isAnagram = (firstWord, secondWord) => {
-  const firstWordArr = [...firstWord.toLowerCase()];
+  const firstWordArr = [...firstWord.replace(/[^\w]/g, "").toLowerCase()];
+  const secondWordArr = [...secondWord.replace(/[^\w]/g, "").toLowerCase()];
 
-  if (firstWord.length !== secondWord.length) {
-    return false;
-  }
-
-  for (letter of secondWord) {
-    if (firstWordArr.indexOf(letter.toLowerCase()) === -1) {
+  for (letter of firstWordArr) {
+    if (secondWordArr.indexOf(letter) === -1) {
       return false;
     }
   }
 
-  console.log(`${secondWord} is an anagram of ${firstWord}`);
   return true;
 };
 
-module.exports = isAnagram;
+// MUCH BETTER IMPLEMENTATION, courtesy of Brad Traversy... or probably just stackoverflow or whatever.
+function prepWord(word) {
+  return word
+    .replace(/[^\w]/g, "")
+    .toLowerCase()
+    .split("")
+    .sort()
+    .join("");
+}
+
+const anagramCheck = (wordA, wordB) => {
+  return prepWord(wordA) === prepWord(wordB);
+};
+
+module.exports = { isAnagram, anagramCheck };

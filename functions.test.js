@@ -25,7 +25,6 @@ afterAll(() => initDatabase());
 Run only before DESCRIBED tests
 ====
 
-*/
 const nameCheck = () => console.log("Checking Name...");
 
 describe("Checking Names", () => {
@@ -41,6 +40,8 @@ describe("Checking Names", () => {
     expect(user.firstName).toBe("Karen");
   });
 });
+
+*/
 
 const initDatabase = () => {
   console.log("Initalizing the Database... Hi!");

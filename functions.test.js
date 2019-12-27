@@ -1,5 +1,55 @@
 const functions = require("./functions");
 
+// you can set up jest to run other functions before or after a test
+
+/* 
+====
+after EACH test
+====
+
+beforeEach(() => initDatabase());
+afterEach(() => deinitDatabase());
+*/
+
+/* 
+====
+ONCE per test suite
+====
+
+beforeAll(() => initDatabase());
+afterAll(() => initDatabase());
+*/
+
+/* 
+====
+Run only before DESCRIBED tests
+====
+
+*/
+const nameCheck = () => console.log("Checking Name...");
+
+describe("Checking Names", () => {
+  beforeEach(() => nameCheck());
+
+  test("User is Jeff", () => {
+    const user = { lastName: "Bridges", firstName: "Jeff" };
+    expect(user.firstName).toBe("Jeff");
+  });
+
+  test("User is Karen", () => {
+    const user = { lastName: "Walker", firstName: "Karen" };
+    expect(user.firstName).toBe("Karen");
+  });
+});
+
+const initDatabase = () => {
+  console.log("Initalizing the Database... Hi!");
+};
+
+const deinitDatabase = () => {
+  console.log("Closing the Database... Bye!");
+};
+
 // toBe matcher
 test("Adds 2 + 2 to equal 4", () => {
   // actual function goes here, as well as the 'matcher' appended to the end of expect()
